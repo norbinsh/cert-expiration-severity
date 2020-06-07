@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"os"
 
+	sev "github.com/Norbinsh/cert-expiration-severity"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sns"
 
-	sev "github.com/Norbinsh/cert-expiration-severity"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 

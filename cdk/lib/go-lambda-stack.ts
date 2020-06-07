@@ -17,7 +17,9 @@ export class GoLambdaStack extends cdk.Stack {
     );
 
     // create the lambda and let it publish to the above topic
-    const lambda = new golang.GolangFunction(this, "ces-lambda");
+    const lambda = new golang.GolangFunction(this, "ces-lambda", {
+      entry: "../ces-lambda",
+    });
     lambda.addEnvironment("topic_arn", topic.topicArn);
     lambda.addPermission("sns publish", {
       principal: new iam.ServicePrincipal("sns.amazonaws.com"),
