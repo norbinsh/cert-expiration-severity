@@ -20,21 +20,21 @@ type Website struct {
 }
 
 // GetSev parse the x509 certificate and return a Severity
-func GetSev(c *x509.Certificate) Severity {
+func GetSev(c *x509.Certificate) (Severity, int) {
 	expirationTime := c.NotAfter
 	daysLeft := int(math.Round(time.Until(expirationTime).Hours() / 24))
 	fmt.Println(daysLeft)
 	switch {
 	case daysLeft <= 20:
-		return Severity{4}
+		return Severity{4}, daysLeft
 	case daysLeft <= 40:
-		return Severity{3}
+		return Severity{3}, daysLeft
 	case daysLeft <= 60:
-		return Severity{2}
+		return Severity{2}, daysLeft
 	case daysLeft <= 80:
-		return Severity{1}
+		return Severity{1}, daysLeft
 	default:
-		return Severity{0}
+		return Severity{0}, daysLeft
 	}
 }
 
