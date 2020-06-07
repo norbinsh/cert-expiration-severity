@@ -65,7 +65,7 @@ func TestGetBounds(t *testing.T) {
 			cert, err := target.GetCert()
 			assertError(t, err)
 
-			got := GetSev(cert)
+			got, _ := GetSev(cert)
 
 			assertDiff(t, got, want)
 
