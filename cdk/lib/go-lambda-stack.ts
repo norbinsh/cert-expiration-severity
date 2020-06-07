@@ -5,6 +5,7 @@ import * as targets from "@aws-cdk/aws-events-targets";
 import * as sns from "@aws-cdk/aws-sns";
 import * as subscriptions from "@aws-cdk/aws-sns-subscriptions";
 import * as iam from "@aws-cdk/aws-iam";
+import path = require("path");
 
 export class GoLambdaStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -17,9 +18,7 @@ export class GoLambdaStack extends cdk.Stack {
     );
 
     // create the lambda and let it publish to the above topic
-    const lambda = new golang.GolangFunction(this, "ces-lambda", {
-      entry: "../ces-lambda",
-    });
+    const lambda = new golang.GolangFunction(this, "ces-lambda");
     lambda.addEnvironment("topic_arn", topic.topicArn);
     lambda.addPermission("sns publish", {
       principal: new iam.ServicePrincipal("sns.amazonaws.com"),
