@@ -13,7 +13,7 @@ export class GoLambdaStack extends cdk.Stack {
     // create a topic where the lambda will publish to
     const topic = new sns.Topic(this, "topic");
     topic.addSubscription(
-      new subscriptions.EmailSubscription("wowshay@gmail.com")
+      new subscriptions.EmailSubscription("email@google.com")
     );
 
     // create the lambda and let it publish to the above topic
