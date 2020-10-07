@@ -1,4 +1,4 @@
-package sev
+package main
 
 import (
 	"crypto/x509"
