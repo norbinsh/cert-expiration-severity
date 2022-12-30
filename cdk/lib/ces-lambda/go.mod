@@ -1,7 +1,7 @@
 require (
-	github.com/Norbinsh/cert-expiration-severity v0.2.0 // indirect
+	github.com/Norbinsh/cert-expiration-severity v0.2.0
 	github.com/aws/aws-lambda-go v1.17.0
-	github.com/aws/aws-sdk-go v1.31.12
+	github.com/aws/aws-sdk-go v1.33.0
 )
 
 module github.com/Norbinsh/cert-expiration-severity/cdk/ces-lambda
